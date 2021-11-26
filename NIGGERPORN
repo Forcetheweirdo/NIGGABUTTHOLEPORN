@@ -29,7 +29,23 @@ local main2 = win:Tab("Player")
 local main3 = win:Tab("Anti-Lock")
 local main4 = win:Tab("Teleports")
 local main5 = win:Tab("Credits")
+--// Silent Aim
 
+        local Toggle1 = Section1:CreateToggle("Silent Aim", nil, function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/akaelox/resources/main/aim3", true))()
+        end)
+
+        local Toggle2 = Section1:CreateToggle("Show Fov", nil, function(bool)
+            Aiming.ShowFOV = bool
+        end)
+
+        local TextBox1 = Section1:CreateTextBox("Prediction", "0.157 for low ping 0.178 high ping", false, function (value)
+            DaHoodSettings.Prediction = value
+        end)
+
+        local Dropdown1 = Section1:CreateDropdown("Silent Aim Part", {"Head","UpperTorso","HumanoidRootPart", "LowerTorso"}, function(objective)
+            Aiming.TargetPart = objective
+        end)
 --MAIN SCRIPT
 main:Toggle("Toggle Silent Aim",function(bool)
     DaHoodSettings.SilentAim = bool
